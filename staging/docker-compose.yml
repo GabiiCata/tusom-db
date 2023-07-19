@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  db:
+    container_name: tusom-db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Los4Fantasticoss
+      POSTGRES_DB: tusomdb
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

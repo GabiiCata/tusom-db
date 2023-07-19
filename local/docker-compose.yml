@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:13.1
+    container_name: tusom-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Los4Fantasticoss
+      - POSTGRES_DB=tusomdb # Nombre de la base de datos
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+    restart: always
